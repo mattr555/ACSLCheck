@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Score report for test</title>
+	<style>
+		td {border: 1px solid black;}
+		table {border-collapse: collapse; margin-bottom: 20px;}
+		.max {background-color: #dff0d8;}
+		.code {font-family: monospace;}
+		.correct {color: green;}
+		.correct:before {content: '✓ ';}
+		.incorrect {color: red;}
+		.incorrect:before {content: '✗ ';}
+	</style>
+</head>
+<body>
+	<h1>ACSL Report for test</h1>
+	<table>
+		<tr>
+			<td>Input:</td>
+			<td>Correct output:</td>
+		</tr>
+		<tr>
+			<td><pre>&&&&, 25
+&,&&&&&, 12345
+&&&.&&&&, 12.34
+&&&.&&, 12.345
+$&&&&.&&, 123.45
+*$&&&&&&.&&, 123.45
+&&&E, 25376
+&&&&&&, 456
+&&&&&&,&, 1000000
+$&&&&.&&, 123.38
+&&&.&&&, 23.49
+&&&.&&&, 23.4999
+&&&E, 45</pre></td>
+			<td><pre>**25
+*12,345
+*12.3400
+*12.35
+$123.45
+***$123.45
+2.54E4
+***456
+1,000,000
+$123.38
+*23.490
+*23.500
+4.50E1</pre></td>
+	</table>
+	
+	<table>
+		<tr>
+			<td>Name</td>
+			<td>Score</td>
+			<td>stdout</td>
+			<td>stderr</td>
+		</tr>
+		
+		<tr >
+			<td>CrashTest</td>
+			<td>2</td>
+			<td>
+				<span class="code correct">**25</span><br>
+			
+				<span class="code correct">*12,345</span><br>
+			</td>
+			<td><pre>Traceback (most recent call last):
+  File "test/senior_acslHTHScontest2_py3_CrashTest.py", line 3, in <module>
+    raise Exception('fail')
+Exception: fail
+</pre></td>
+		</tr>
+		
+		<tr class="max">
+			<td>RaminaMatt</td>
+			<td>13</td>
+			<td>
+				<span class="code correct">Input: **25</span><br>
+			
+				<span class="code correct">Input: *12,345</span><br>
+			
+				<span class="code correct">Input: *12.3400</span><br>
+			
+				<span class="code correct">Input: *12.35</span><br>
+			
+				<span class="code correct">Input: $123.45</span><br>
+			
+				<span class="code correct">Input: ***$123.45</span><br>
+			
+				<span class="code correct">Input: 2.54E4</span><br>
+			
+				<span class="code correct">Input: ***456</span><br>
+			
+				<span class="code correct">Input: 1,000,000</span><br>
+			
+				<span class="code correct">Input: $123.38</span><br>
+			
+				<span class="code correct">Input: *23.490</span><br>
+			
+				<span class="code correct">Input: *23.500</span><br>
+			
+				<span class="code correct">Input: 4.50E1</span><br>
+			</td>
+			<td><pre></pre></td>
+		</tr>
+		
+		<tr >
+			<td>WrongTest</td>
+			<td>11</td>
+			<td>
+				<span class="code correct">**25</span><br>
+			
+				<span class="code correct">*12,345</span><br>
+			
+				<span class="code correct">*12.3400</span><br>
+			
+				<span class="code correct">*12.35</span><br>
+			
+				<span class="code incorrect">wrong answer</span><br>
+			
+				<span class="code incorrect">another</span><br>
+			
+				<span class="code correct">2.54E4</span><br>
+			
+				<span class="code correct">***456</span><br>
+			
+				<span class="code correct">1,000,000</span><br>
+			
+				<span class="code correct">$123.38</span><br>
+			
+				<span class="code correct">*23.490</span><br>
+			
+				<span class="code correct">*23.500</span><br>
+			
+				<span class="code correct">4.50E1</span><br>
+			</td>
+			<td><pre></pre></td>
+		</tr>
+		
+	</table>
+</body>
+</html>

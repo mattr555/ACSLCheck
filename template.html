@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Score report for {{directory}}</title>
+	<style>
+		td {border: 1px solid black;}
+		table {border-collapse: collapse; margin-bottom: 20px;}
+		.max {background-color: #dff0d8;}
+		.code {font-family: monospace;}
+		.correct {color: green;}
+		.correct:before {content: '✓ ';}
+		.incorrect {color: red;}
+		.incorrect:before {content: '✗ ';}
+	</style>
+</head>
+<body>
+	<h1>ACSL Report for {{directory}}</h1>
+	<table>
+		<tr>
+			<td>Input:</td>
+			<td>Correct output:</td>
+		</tr>
+		<tr>
+			<td><pre>{{input}}</pre></td>
+			<td><pre>{{correct_output}}</pre></td>
+	</table>
+	
+	<table>
+		<tr>
+			<td>Name</td>
+			<td>Score</td>
+			<td>stdout</td>
+			<td>stderr</td>
+		</tr>
+		{%for f in names%}
+		<tr {%if results[f].score == max_score%}class="max"{%endif%}>
+			<td>{{results[f].name}}</td>
+			<td>{{results[f].score}}</td>
+			<td>{%for line, correct in results[f].out%}
+				<span class="code {%if correct%}correct{%else%}incorrect{%endif%}">{{line}}</span><br>
+			{%endfor%}</td>
+			<td><pre>{{results[f].err}}</pre></td>
+		</tr>
+		{%endfor%}
+	</table>
+</body>
+</html>
