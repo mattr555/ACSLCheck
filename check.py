@@ -4,7 +4,7 @@ import glob
 import re
 import subprocess
 
-file_re = re.compile(r'(?:senior|intermediate)_acslHTHScontest[1-4]_py([23])_(.*)\.py', re.IGNORECASE)
+file_re = re.compile(r'(?:senior|intermediate)_contest[1-4]_(.*)_python([23])\.py', re.IGNORECASE)
 
 def run_one(directory, filename, version):
     cmd = 'python{} {} < {}'.format(version, filename, os.path.join(directory, 'in.txt'))
@@ -18,7 +18,7 @@ def run_one(directory, filename, version):
 def run_all(directory):
     results = {}
     for f in glob.glob('{}/*.py'.format(directory)):
-        version = file_re.search(f).group(1)
+        version = file_re.search(f).group(2)
         results[f] = run_one(directory, f, version)
     return results
 
