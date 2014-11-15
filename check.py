@@ -51,7 +51,7 @@ if __name__ == "__main__":
         results[i] = {'out': out,
                       'err': results[i][1],
                       'score': score,
-                      'name': file_re.search(i).group(2)}
+                      'name': file_re.search(i).group(1)}
 
     names = sorted(results.keys())
     for i in names:
